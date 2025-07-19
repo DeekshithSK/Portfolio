@@ -2,6 +2,9 @@ import React, { useEffect, useRef, useState } from 'react'
 import './App.css'
 import deeImage from './dee.jpg'
 
+import Particles from './Particles';
+import RotatingText from './RotatingText';
+
 
 function useSlideInOnScroll() {
   const ref = useRef();
@@ -30,7 +33,7 @@ function App() {
   const [aboutRef, aboutVisible] = useSlideInOnScroll();
   const [projectsRef, projectsVisible] = useSlideInOnScroll();
   const [contactRef, contactVisible] = useSlideInOnScroll();
-  const [splineLoaded, setSplineLoaded] = useState(false);
+  // Removed: const [splineLoaded, setSplineLoaded] = useState(false);
 
   const handleScrollToAbout = () => {
     const aboutSection = document.getElementById('about');
@@ -47,37 +50,22 @@ function App() {
   };
 
   return (
-    <div className="app">
-      {/* Placeholder background */}
-      {!splineLoaded && (
-        <div className="spline-placeholder"></div>
-      )}
-      <div className="spline-wrapper">
-        <div className="spline-overlay-top"></div>
-        <iframe 
-          src='https://my.spline.design/claritystream-U0g25lujoCvBtolJyYq6FFFz/' 
-          frameBorder='0' 
-          width='100%' 
-          height='100%'
-          style={{
-            position: 'fixed',
-            top: 0,
-            left: 0,
-            width: '100%',
-            height: '100%',
-            zIndex: -1,
-            pointerEvents: 'none',
-            border: 'none',
-            overflow: 'hidden',
-            transform: 'scale(1.1)'
-          }}
-          onLoad={() => setSplineLoaded(true)}
+    <div className="app" style={{ position: 'relative', zIndex: 0 }}>
+      {/* Particles Background */}
+      <div style={{ position: 'fixed', top: 0, left: 0, width: '100vw', height: '100vh', zIndex: 0, pointerEvents: 'none' }}>
+        <Particles
+          particleColors={['#ffffff', '#ffffff']}
+          particleCount={200}
+          particleSpread={10}
+          speed={0.1}
+          particleBaseSize={100}
+          moveParticlesOnHover={true}
+          alphaParticles={false}
+          disableRotation={false}
         />
-        <div className="spline-overlay-bottom"></div>
       </div>
-
       {/* Header/Navigation */}
-      <header className="header">
+      <header className="header" style={{ position: 'relative', zIndex: 1 }}>
         <nav>
           <h1>Deekshith</h1>
           <ul>
@@ -89,10 +77,27 @@ function App() {
       </header>
 
       {/* Hero Section */}
-      <section className="hero">
-        <div className="hero-content">
+      <section className="hero" style={{ position: 'relative', zIndex: 1 }}>
+        {/* Remove Orb as hero background */}
+        <div className="hero-content" style={{ position: 'relative', zIndex: 1, textAlign: 'center' }}>
           <h1>hi, <span className="name" onClick={handleScrollToAbout}>Deekshith</span> here.</h1>
-          <h2>Aspiring Full Stack Developer</h2>
+          <h2 style={{ display: 'flex', justifyContent: 'center', alignItems: 'center', gap: '0.5rem', width: '100%', marginLeft: '9.3rem' }}>
+            <span style={{ flexShrink: 0 }}>Aspiring</span>
+            <span style={{ display: 'inline-block', minWidth: '23ch', textAlign: 'left' }}>
+              <RotatingText
+                texts={['Fullstack Developer', 'Cybersecurity Analyst']}
+                mainClassName="px-2 sm:px-2 md:px-3 bg-cyan-300 text-black overflow-hidden py-0.5 sm:py-1 md:py-2 justify-center rounded-lg"
+                staggerFrom={"last"}
+                initial={{ opacity: 0 }}
+                animate={{ opacity: 1 }}
+                exit={{ opacity: 0 }}
+                staggerDuration={0.025}
+                splitLevelClassName="overflow-hidden pb-0.5 sm:pb-1 md:pb-1"
+                transition={{ type: "spring", damping: 30, stiffness: 400 }}
+                rotationInterval={3500}
+              />
+            </span>
+          </h2>
           <p>I build aesthetically pleasing, responsive, and user-friendly web applications.</p>
           <button 
             className="cta-button"
@@ -108,6 +113,7 @@ function App() {
         id="about"
         ref={aboutRef}
         className={`about${aboutVisible ? ' slide-in visible' : ' slide-in'}`}
+        style={{ position: 'relative', zIndex: 1 }}
       >
         <div className="about-flex">
           <div className="about-left">
@@ -132,6 +138,29 @@ function App() {
                 <p>Expected Graduation: 2026</p>
               </div>
             </div>
+            {/* Co-founder Subsection */}
+            <div className="education-section">
+              <h3 className="education-title">Co-founder</h3>
+              <div
+                className="education-card"
+                style={{ cursor: 'pointer' }}
+                onClick={() => window.open('https://chaithra-e2135.web.app/', '_blank', 'noopener noreferrer')}
+                tabIndex={0}
+                onKeyPress={e => { if (e.key === 'Enter') window.open('https://chaithra-e2135.web.app/', '_blank', 'noopener noreferrer'); }}
+                role="button"
+                aria-label="Visit ApertureAura Camera rentals company website"
+              >
+                <div className="education-header">
+                  <div>
+                    <span className="degree">Co-founder of <span style={{ fontWeight: 700, }}> ApertureAura</span></span>
+                    <br />
+                    <a href="https://chaithra-e2135.web.app/" className="institute" target="_blank" rel="noopener noreferrer">
+                      Camera rentals company, Mangalore
+                    </a>
+                  </div>
+                </div>
+              </div>
+            </div>
           </div>
           <div className="about-image-container about-image-right">
             <img 
@@ -144,7 +173,7 @@ function App() {
       </section>
 
       {/* Projects Section */}
-      <section className={`projects${projectsVisible ? ' slide-in visible' : ' slide-in'}`} id="projects" ref={projectsRef}>
+      <section className={`projects${projectsVisible ? ' slide-in visible' : ' slide-in'}`} id="projects" ref={projectsRef} style={{ position: 'relative', zIndex: 1 }}>
         <h2>My Projects</h2>
         <div className="projects-grid">
           <a 
@@ -173,7 +202,7 @@ function App() {
       </section>
 
       {/* Contact Section */}
-      <section className={`contact${contactVisible ? ' slide-in visible' : ' slide-in'}`} id="contact" ref={contactRef}>
+      <section className={`contact${contactVisible ? ' slide-in visible' : ' slide-in'}`} id="contact" ref={contactRef} style={{ position: 'relative', zIndex: 1 }}>
         <h2>Get In Touch</h2>
         <div className="contact-content">
           <div className="contact-card">
