@@ -4,6 +4,7 @@ import deeImage from './dee.jpg'
 
 import Particles from './Particles';
 import RotatingText from './RotatingText';
+import MagicBento from './MagicBento';
 
 
 function useSlideInOnScroll() {
@@ -79,7 +80,7 @@ function App() {
       {/* Hero Section */}
       <section className="hero" style={{ position: 'relative', zIndex: 1 }}>
         {/* Remove Orb as hero background */}
-        <div className="hero-content" style={{ position: 'relative', zIndex: 1, textAlign: 'center' }}>
+        <div className="hero-content" style={{ position: 'relative', zIndex: 1, textAlign: 'center', marginTop: '-10rem' }}>
           <h1>hi, <span className="name" onClick={handleScrollToAbout}>Deekshith</span> here.</h1>
           <h2 style={{ display: 'flex', justifyContent: 'center', alignItems: 'center', gap: '0.5rem', width: '100%', marginLeft: '9.3rem' }}>
             <span style={{ flexShrink: 0 }}>Aspiring</span>
@@ -125,41 +126,67 @@ function App() {
             {/* Education Subsection */}
             <div className="education-section">
               <h3 className="education-title">EDUCATION</h3>
-              <div className="education-card">
-                <div className="education-header">
-                  <div>
-                    <span className="degree">Bachelor of Computer Applications (BCA)</span>
-                    <br />
-                    <a href="https://nitte.edu.in/" className="institute" target="_blank" rel="noopener noreferrer">
-                      Nitte Institute of Professional Education, Mangalore
-                    </a>
+              <MagicBento 
+                textAutoHide={true}
+                enableStars={true}
+                enableSpotlight={true}
+                enableBorderGlow={true}
+                enableTilt={false}
+                enableMagnetism={true}
+                clickEffect={true}
+                spotlightRadius={300}
+                particleCount={12}
+                glowColor="132, 0, 255"
+              >
+                <div className="education-card">
+                  <div className="education-header">
+                    <div>
+                      <span className="degree">Bachelor of Computer Applications (BCA)</span>
+                      <br />
+                      <a href="https://nitte.edu.in/" className="institute" target="_blank" rel="noopener noreferrer">
+                        Nitte Institute of Professional Education, Mangalore
+                      </a>
+                    </div>
                   </div>
+                  <p>Expected Graduation: 2026</p>
                 </div>
-                <p>Expected Graduation: 2026</p>
-              </div>
+              </MagicBento>
             </div>
             {/* Co-founder Subsection */}
             <div className="education-section">
               <h3 className="education-title">Co-founder</h3>
-              <div
-                className="education-card"
-                style={{ cursor: 'pointer' }}
-                onClick={() => window.open('https://chaithra-e2135.web.app/', '_blank', 'noopener noreferrer')}
-                tabIndex={0}
-                onKeyPress={e => { if (e.key === 'Enter') window.open('https://chaithra-e2135.web.app/', '_blank', 'noopener noreferrer'); }}
-                role="button"
-                aria-label="Visit ApertureAura Camera rentals company website"
+              <MagicBento 
+                textAutoHide={true}
+                enableStars={true}
+                enableSpotlight={true}
+                enableBorderGlow={true}
+                enableTilt={false}
+                enableMagnetism={true}
+                clickEffect={true}
+                spotlightRadius={300}
+                particleCount={12}
+                glowColor="132, 0, 255"
               >
-                <div className="education-header">
-                  <div>
-                    <span className="degree">Co-founder of <span style={{ fontWeight: 700, }}> ApertureAura</span></span>
-                    <br />
-                    <a href="https://chaithra-e2135.web.app/" className="institute" target="_blank" rel="noopener noreferrer">
-                      Camera rentals company, Mangalore
-                    </a>
+                <div
+                  className="education-card"
+                  style={{ cursor: 'pointer' }}
+                  onClick={() => window.open('https://chaithra-e2135.web.app/', '_blank', 'noopener noreferrer')}
+                  tabIndex={0}
+                  onKeyPress={e => { if (e.key === 'Enter') window.open('https://chaithra-e2135.web.app/', '_blank', 'noopener noreferrer'); }}
+                  role="button"
+                  aria-label="Visit ApertureAura Camera rentals company website"
+                >
+                  <div className="education-header">
+                    <div>
+                      <span className="degree">Co-founder of <span style={{ fontWeight: 700, color: '#00e6e6' }}>ApertureAura</span></span>
+                      <br />
+                      <a href="https://chaithra-e2135.web.app/" className="institute" target="_blank" rel="noopener noreferrer">
+                        Camera rentals company, Mangalore
+                      </a>
+                    </div>
                   </div>
                 </div>
-              </div>
+              </MagicBento>
             </div>
           </div>
           <div className="about-image-container about-image-right">
@@ -173,31 +200,44 @@ function App() {
       </section>
 
       {/* Projects Section */}
-      <section className={`projects${projectsVisible ? ' slide-in visible' : ' slide-in'}`} id="projects" ref={projectsRef} style={{ position: 'relative', zIndex: 1 }}>
+      <section className={`projects${projectsVisible ? ' slide-in visible' : ' slide-in'}`} id="projects" ref={projectsRef} style={{ position: 'relative', zIndex: 1, marginTop: '15rem' }}>
         <h2>My Projects</h2>
         <div className="projects-grid">
-          <a 
-            href="https://library-management-system-vp40.onrender.com" 
-            target="_blank" 
-            rel="noopener noreferrer"
-            className="project-card"
+          <MagicBento 
+            textAutoHide={true}
+            enableStars={true}
+            enableSpotlight={true}
+            enableBorderGlow={true}
+            enableTilt={false}
+            enableMagnetism={true}
+            clickEffect={true}
+            spotlightRadius={300}
+            particleCount={12}
+            glowColor="132, 0, 255"
           >
-            <div className="project-content">
-              <h3>Library Management System</h3>
-              <p>A full-stack web application for managing library resources, featuring user authentication, book management, and admin controls.</p>
-              <p>Password to access the page "admin12345"</p>
-              <div className="project-tech">
-                <span>HTML</span>
-                <span>CSS</span>
-                <span>Python</span>
-                <span>Flask</span>
-                <span>Bootstrap</span>
+            <a 
+              href="https://library-management-system-vp40.onrender.com" 
+              target="_blank" 
+              rel="noopener noreferrer"
+              className="project-card"
+            >
+              <div className="project-content">
+                <h3>Library Management System</h3>
+                <p>A full-stack web application for managing library resources, featuring user authentication, book management, and admin controls.</p>
+                <p>Password to access the page "admin12345"</p>
+                <div className="project-tech">
+                  <span>HTML</span>
+                  <span>CSS</span>
+                  <span>Python</span>
+                  <span>Flask</span>
+                  <span>Bootstrap</span>
+                </div>
+                <div className="project-link">
+                  Visit Project →
+                </div>
               </div>
-              <div className="project-link">
-                Visit Project →
-              </div>
-            </div>
-          </a>
+            </a>
+          </MagicBento>
         </div>
       </section>
 
@@ -205,24 +245,63 @@ function App() {
       <section className={`contact${contactVisible ? ' slide-in visible' : ' slide-in'}`} id="contact" ref={contactRef} style={{ position: 'relative', zIndex: 1 }}>
         <h2>Get In Touch</h2>
         <div className="contact-content">
-          <div className="contact-card">
-            <div className="contact-item">
-              <i className="fas fa-phone"></i>
-              <h3>Phone</h3>
-              <a href="tel:+918618232639">+91 8618232639</a>
-            </div>
-            <div className="contact-item">
-              <i className="fas fa-envelope"></i>
-              <h3>Email</h3>
-              <a href="mailto:deekshithsk24@gmail.com">deekshithsk24@gmail.com</a>
-            </div>
-            <div className="contact-item">
-              <i className="fab fa-linkedin"></i>
-              <h3>LinkedIn</h3>
-              <a href="https://www.linkedin.com/in/deekshith-sk-aa0694274" target="_blank" rel="noopener noreferrer">
-                deekshith-sk
-              </a>
-            </div>
+          <div className="contact-card" style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', gap: '2rem', backgroundColor: 'black' }}>
+            <MagicBento 
+              textAutoHide={true}
+              enableStars={true}
+              enableSpotlight={true}
+              enableBorderGlow={true}
+              enableTilt={false}
+              enableMagnetism={true}
+              clickEffect={true}
+              spotlightRadius={300}
+              particleCount={12}
+              glowColor="132, 0, 255"
+            >
+              <div className="contact-item">
+                <i className="fas fa-phone"></i>
+                <h3>Phone</h3>
+                <a href="tel:+918618232639">+91 8618232639</a>
+              </div>
+            </MagicBento>
+            <MagicBento 
+              textAutoHide={true}
+              enableStars={true}
+              enableSpotlight={true}
+              enableBorderGlow={true}
+              enableTilt={false}
+              enableMagnetism={true}
+              clickEffect={true}
+              spotlightRadius={300}
+              particleCount={12}
+              glowColor="132, 0, 255"
+            >
+              <div className="contact-item">
+                <i className="fas fa-envelope"></i>
+                <h3>Email</h3>
+                <a href="mailto:deekshithsk24@gmail.com">deekshithsk24@gmail.com</a>
+              </div>
+            </MagicBento>
+            <MagicBento 
+              textAutoHide={true}
+              enableStars={true}
+              enableSpotlight={true}
+              enableBorderGlow={true}
+              enableTilt={false}
+              enableMagnetism={true}
+              clickEffect={true}
+              spotlightRadius={300}
+              particleCount={12}
+              glowColor="132, 0, 255"
+            >
+              <div className="contact-item">
+                <i className="fab fa-linkedin"></i>
+                <h3>LinkedIn</h3>
+                <a href="https://www.linkedin.com/in/deekshith-sk-aa0694274" target="_blank" rel="noopener noreferrer">
+                  deekshith-sk
+                </a>
+              </div>
+            </MagicBento>
           </div>
         </div>
       </section>
